@@ -11,12 +11,12 @@ RUN mkdir -p /opt &&\
     | gunzip -c - | tar -xf - -C /opt && \
     ln -s /opt/SoapUI-${SOAPUI_VERSION} /opt/SoapUI
 
+COPY docker-entrypoint.sh /opt/SoapUI/docker-entrypoint.sh
+RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
+
 # Set environment
 ENV PATH ${PATH}:/opt/SoapUI/bin
 
 WORKDIR /opt/SoapUI/bin
-
-ADD docker-entrypoint.sh /opt/SoapUI
-RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
 
 ENTRYPOINT ["dos2unix /opt/SoapUI/docker-entrypoint.sh"]
