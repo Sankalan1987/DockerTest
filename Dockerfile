@@ -17,7 +17,7 @@ RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
 # Set environment
 ENV PATH ${PATH}:/opt/SoapUI/bin
 
-WORKDIR /opt/SoapUI/bin
+WORKDIR /opt/SoapUI
 
 
 ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
