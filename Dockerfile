@@ -2,6 +2,10 @@ FROM openjdk:8-jre-alpine
 FROM ubuntu:14.04
 MAINTAINER Sankalan <banerjee.sankalan2@gmail.com>
 
+# Install curl
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+	
 # SOAP UI Version to download
 ENV SOAPUI_VERSION 5.2.1
 
