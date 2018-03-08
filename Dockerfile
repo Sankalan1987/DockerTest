@@ -17,5 +17,6 @@ ENV PATH ${PATH}:/opt/SoapUI/bin
 WORKDIR /opt/SoapUI/bin
 
 ADD docker-entrypoint.sh /opt/SoapUI
+RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
 
-ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
+ENTRYPOINT ["dos2unix /opt/SoapUI/docker-entrypoint.sh"]
