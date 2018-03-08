@@ -19,5 +19,4 @@ ENV PATH ${PATH}:/opt/SoapUI/bin
 
 WORKDIR /opt/SoapUI
 
-
-ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
