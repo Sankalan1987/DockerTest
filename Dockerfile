@@ -13,11 +13,11 @@ RUN mkdir -p /tmp &&\
     #ln -s /tmp/SoapUI-${SOAPUI_VERSION} /tmp/SoapUI
     ln -s /tmp/SoapUI-${SOAPUI_VERSION} /var/lib/docker/volumes/SoapUI
 
-COPY docker-entrypoint.sh /tmp/SoapUI/docker-entrypoint.sh
-RUN chmod +x /tmp/SoapUI/docker-entrypoint.sh
+COPY docker-entrypoint.sh /var/lib/docker/volumes/SoapUI/docker-entrypoint.sh
+RUN chmod +x /var/lib/docker/volumes/SoapUI/docker-entrypoint.sh
 
 # Set environment
 ENV PATH ${PATH}:/var/lib/docker/volumes/SoapUI/bin
 WORKDIR /var/lib/docker/volumes/SoapUI/bin
 
-ENTRYPOINT ["/tmp/SoapUI/docker-entrypoint.sh"]
+ENTRYPOINT ["/var/lib/docker/volumes/SoapUI/docker-entrypoint.sh"]
