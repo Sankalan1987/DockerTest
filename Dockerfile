@@ -14,6 +14,8 @@ RUN mkdir -p /opt &&\
 COPY docker-entrypoint.sh /opt/SoapUI/docker-entrypoint.sh
 RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
 
+# Set environment
+ENV PATH ${PATH}:/opt/SoapUI-5.2.1/bin
 WORKDIR /opt/SoapUI
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
