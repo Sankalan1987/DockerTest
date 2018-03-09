@@ -18,4 +18,4 @@ RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
 ENV PATH ${PATH}:/opt/SoapUI/bin
 WORKDIR /opt/SoapUI/bin
 
-ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
+ENTRYPOINT ["testrunner.sh"]
