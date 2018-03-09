@@ -1,5 +1,6 @@
 FROM openjdk:8-jre-alpine
 FROM centos:7
+FROM java:openjdk-7-jdk
 MAINTAINER Sankalan <banerjee.sankalan2@gmail.com>
 
 # SOAP UI Version to download
