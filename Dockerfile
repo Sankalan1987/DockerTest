@@ -9,13 +9,13 @@ ENV SOAPUI_VERSION 5.2.1
 RUN mkdir -p /opt &&\
     curl  http://smartbearsoftware.com/distrib/soapui/5.2.1/SoapUI-5.2.1-linux-bin.tar.gz \
     | gunzip -c - | tar -xf - -C /opt && \
-    ln -s /opt/SoapUI
+    ln -s /opt/SoapUI-${SOAPUI_VERSION} /opt/SoapUI
 
 COPY docker-entrypoint.sh /opt/SoapUI/docker-entrypoint.sh
 RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
 
 # Set environment
-ENV PATH ${PATH}:/opt/SoapUI-5.2.1/bin
-WORKDIR /opt/SoapUI
+ENV PATH ${PATH}:/opt/SoapUI/bin
+WORKDIR /opt/SoapUI/bin
 
 ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
