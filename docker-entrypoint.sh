@@ -1,5 +1,4 @@
 #!/bin/bash
-cd /opt/SoapUI/projects
 for file in $(ls $dir)
 do
     [ -f $file ] && echo "$file is File"
