@@ -7,16 +7,16 @@ MAINTAINER Sankalan <banerjee.sankalan2@gmail.com>
 ENV SOAPUI_VERSION 5.2.1
 
 # Download and unarchive SoapUI
-RUN mkdir -p /opt &&\
+RUN mkdir -p /tmp &&\
     curl  http://smartbearsoftware.com/distrib/soapui/5.2.1/SoapUI-5.2.1-linux-bin.tar.gz \
     | gunzip -c - | tar -xf - -C /opt && \
-    ln -s /opt/SoapUI-${SOAPUI_VERSION} /opt/SoapUI
+    ln -s /tmp/SoapUI-${SOAPUI_VERSION} /tmp/SoapUI
 
-COPY docker-entrypoint.sh /opt/SoapUI/docker-entrypoint.sh
-RUN chmod +x /opt/SoapUI/docker-entrypoint.sh
+COPY docker-entrypoint.sh /tmp/SoapUI/docker-entrypoint.sh
+RUN chmod +x /tmp/SoapUI/docker-entrypoint.sh
 
 # Set environment
-ENV PATH ${PATH}:/opt/SoapUI/bin
-WORKDIR /opt/SoapUI/bin
+ENV PATH ${PATH}:/tmp/SoapUI/bin
+WORKDIR /tmp/SoapUI/bin
 
-ENTRYPOINT ["/opt/SoapUI/docker-entrypoint.sh"]
+ENTRYPOINT ["/tmp/SoapUI/docker-entrypoint.sh"]
